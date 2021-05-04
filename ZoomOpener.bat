@@ -1,0 +1,1 @@
+C:\Users\shrav\AppData\Local\Programs\Python\Python39\python.exe "C:/Users/shrav/Desktop/ZoomOpener/ZoomOpener.py"
