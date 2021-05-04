@@ -4,7 +4,7 @@ import time
 from threading import Timer
 classDict = json.load(open('zoomdata.json'))
 currentInfo = time.localtime(time.time())
-allTimes = {}
+allTimes = {"period":[], "time":[]}
 
 Timer.cancel
 print("\n" + "SCHEDULE:" + "\n" + "---------------")
@@ -19,19 +19,24 @@ for index, info in enumerate(classDict['classData']):
             print(info["name"] + ((35-(len(info["name"]))) * " ") + " @ " + time.asctime(time.localtime(newTime)))
         else:
             print(info["name"] + ((35-(len(info["name"]))) * " ") + " @ " + "ASYNCHRONOUS")
-        allTimes[index] = newTime-time.time()
+        allTimes["time"].append(newTime)
+        allTimes["period"].append(index)
 
 print("---------------")
-print("You have " + str(len(allTimes)) + " upcoming classes" + "\n")
+print("You have " + str(len(allTimes["time"])) + " upcoming classes" + "\n")
 
 def executeZoom():
-    currentPeriod = min(allTimes, key=allTimes.get)
+    leastTimeDiff = float("inf")
+    for t in allTimes["time"]:
+        if(abs(t-time.time()) < leastTimeDiff):
+            leastTimeDiff = abs(t-time.time())
+            currentPeriod = allTimes["period"][allTimes["time"].index(t)]
     if(classDict['classActive'][currentPeriod]): 
         print("Joining " + classDict['classData'][currentPeriod]["name"] + "...")
         webbrowser.open(classDict['classData'][currentPeriod]["link"], 2)
 
-for t in allTimes.values(): 
-    timer = Timer(t, executeZoom)
+for t in allTimes["time"]: 
+    timer = Timer(t-time.time(), executeZoom)
     timer.start()
 
 if(len(allTimes) == 0):
