@@ -23,7 +23,7 @@ for index, info in enumerate(classDict['classData']):
         allTimes["period"].append(index)
 
 print("---------------")
-print("You have " + str(len(allTimes["time"])) + " upcoming classes" + "\n")
+print("You have " + str(len(allTimes["time"])) + " upcoming classes in the next 24 hours" + "\n")
 
 def executeZoom():
     leastTimeDiff = float("inf")
@@ -39,5 +39,5 @@ for t in allTimes["time"]:
     timer = Timer(t-time.time(), executeZoom)
     timer.start()
 
-if(len(allTimes) == 0):
+if(len(allTimes["time"]) == 0):
     input('Press ENTER to exit')

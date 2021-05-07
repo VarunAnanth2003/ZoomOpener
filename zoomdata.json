@@ -1,5 +1,5 @@
 {
-    "daysOnline": [false, true, false, true, true, false, false],
+    "daysOnline": [false, false, false, true, true, false, false],
     "classActive": [true, true, true, true, true, true, true],
     "classData": [
         {
