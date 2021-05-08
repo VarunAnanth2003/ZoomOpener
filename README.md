@@ -20,10 +20,13 @@ field. Period 1 is index 0, period 2 is index 1, etc.
     "timeStartMinute": [MINUTE CLASS STARTS]
 }
 ```
+- Note that the "timeStartHour" and "timeStartMinute" fields should be in military time (0:00 - 23:59).
 
-- Note that the "timeStartHour" and "timeStartMinute" fields should be in military time (0:00 - 23:59)
+### meetingLength field:
+- Length (in minutes) of the corresponding period's Zoom call, Zoom call will be forcibly terminated after set amount of minutes.
+- Can be overridden manually through the console when prompted.
 
-### Additional Notes:
+## Additional Notes:
 - Using Windows Task Scheduler in tandem with a .bat file can automate this program further,
 not requiring you to run the .py file every morning.
 

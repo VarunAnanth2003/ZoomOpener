@@ -2,6 +2,8 @@ import webbrowser
 import json
 import time
 from threading import Timer
+import os
+
 classDict = json.load(open('zoomdata.json'))
 currentInfo = time.localtime(time.time())
 allTimes = {"period":[], "time":[]}
@@ -23,7 +25,7 @@ for index, info in enumerate(classDict['classData']):
         allTimes["period"].append(index)
 
 print("---------------")
-print("You have " + str(len(allTimes["time"])) + " upcoming classes in the next 24 hours" + "\n")
+print("You have " + str(len(allTimes["time"])) + " upcoming class(es) in the next 24 hours" + "\n")
 
 def executeZoom():
     leastTimeDiff = float("inf")
@@ -34,6 +36,19 @@ def executeZoom():
     if(classDict['classActive'][currentPeriod]): 
         print("Joining " + classDict['classData'][currentPeriod]["name"] + "...")
         webbrowser.open(classDict['classData'][currentPeriod]["link"], 2)
+        timer = Timer(classDict["classData"][currentPeriod]["meetingLength"]*60, killZoom)
+        timer.start()
+        print("Exit Time: " + time.asctime(time.localtime(time.time() + classDict["classData"][currentPeriod]["meetingLength"]*60)))
+        response = input("Quit class? (type 'q'):")
+        if(response.lower() == 'q'):
+            timer.cancel()
+            os.system("taskkill /f /im  Zoom.exe")
+        else:
+            print("Class terminating as normal (see above)")
+
+
+def killZoom():
+    os.system("taskkill /f /im  Zoom.exe")
 
 for t in allTimes["time"]: 
     timer = Timer(t-time.time(), executeZoom)

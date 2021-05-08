@@ -7,49 +7,56 @@
             "period": 1,
             "link": "https://issaquah-wednet-edu.zoom.us/j/97108045398",
             "timeStartHour": 7,
-            "timeStartMinute": 45
+            "timeStartMinute": 45,
+            "meetingLength": 45
         },
         {
             "name": "IB Physics HL 2",
             "period": 2,
             "link": "https://issaquah-wednet-edu.zoom.us/j/92592146842",
             "timeStartHour": 8,
-            "timeStartMinute": 40
+            "timeStartMinute": 40,
+            "meetingLength": 45
         },
         {
             "name": "Health",
             "period": 3,
             "link": "https://issaquah-wednet-edu.zoom.us/j/99042221170",
             "timeStartHour": 9,
-            "timeStartMinute": 35
+            "timeStartMinute": 35,
+            "meetingLength": 45
         },
         {
             "name": "IB World Religions SL",
             "period": 4,
             "link": "https://zoom.us/j/3530178134",
             "timeStartHour": 10,
-            "timeStartMinute": 30
+            "timeStartMinute": 30,
+            "meetingLength": 45
         },
         {
             "name": "IB Math HL 2",
             "period": 5,
             "link": "https://zoom.us/j/98304735385",
             "timeStartHour": 11,
-            "timeStartMinute": 55
+            "timeStartMinute": 55,
+            "meetingLength": 45
         },
         {
             "name": "IB Computer Science HL",
             "period": 6,
             "link": "https://zoom.us/j/94942020969",
             "timeStartHour": 12,
-            "timeStartMinute": 50
+            "timeStartMinute": 50,
+            "meetingLength": 45
         },
         {
             "name": "Literature and Creative Writing",
             "period": 7,
             "link": "https://zoom.us/j/93419604420",
             "timeStartHour": 13,
-            "timeStartMinute": 45
+            "timeStartMinute": 45,
+            "meetingLength": 45
         }
     ]
 }
