@@ -39,12 +39,13 @@ def executeZoom():
         timer = Timer(classDict["classData"][currentPeriod]["meetingLength"]*60, killZoom)
         timer.start()
         print("Exit Time: " + time.asctime(time.localtime(time.time() + classDict["classData"][currentPeriod]["meetingLength"]*60)))
-        response = input("Quit class? (type 'q'):")
-        if(response.lower() == 'q'):
-            timer.cancel()
-            os.system("taskkill /f /im  Zoom.exe")
-        else:
-            print("Class terminating as normal (see above)")
+        #response = input("Quit class? (type 'q' to quit and 's' to stay):")
+        #if(response.lower() == 'q'):
+            #timer.cancel()
+            #killZoom()
+        #elif (response.lower() == 's'):
+            #print("Class will stay active until manually left")
+            #timer.cancel()
 
 
 def killZoom():
